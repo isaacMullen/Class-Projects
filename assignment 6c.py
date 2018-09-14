@@ -1,13 +1,4 @@
 import secrets
-playerChoice = (input('enter rock, paper, scissors, lizard or spock: '))
-rock = playerChoice
-paper = playerChoice
-scissors = playerChoice
-lizard = playerChoice
-spock = playerChoice
-
-pcChoice = ['rock', 'paper', 'scissors', 'lizard', 'spock']
-print(secrets.choice(pcChoice))
 
 #figure out what beats what.
 def playerWins(i, j):
@@ -18,7 +9,17 @@ def playerLoses(i, j):
 
 def playerTie(i,j):
     (i , j,'ties')
+playerChoice = (input('enter rock, paper, scissors, lizard or spock: '))
+rock = playerChoice
+paper = playerChoice
+scissors = playerChoice
+lizard = playerChoice
+spock = playerChoice
 
-if (playerChoice == rock and pcChoice == paper):
-    playerWins (playerChoice, pcChoice)
+pcChoice = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+print('the computer chose',secrets.choice(pcChoice))
+
+
+if (playerChoice == 'rock' and (pcChoice == 'paper' or pcChoice == 'spock' or pcChoice ==)):
+    playerLoses (playerChoice, pcChoice)
     
