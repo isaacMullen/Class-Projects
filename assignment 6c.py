@@ -1,89 +1,86 @@
 import random
 import time
-T = 5
-def countdown(T) :
-    while(T > 0):
-        print(T)
-        T = T - 1
-        time.sleep(1)
-        print(T)
-        T = T - 1
-        time.sleep(1)
-        print(T)
-        T = T - 1
-        time.sleep(1)
-        print(T)
-        T = T - 1
-        time.sleep(1)
-        print(T)
-        T = T - 1
-        time.sleep(1)
-        print(T)
-        T = T - 1
-        if T ==0:
-            print ('you lose')
-countdown(5)
-#figure out what beats what.
-def playerWins(i, j):
-    print(i,' wins')
 
-def playerLoses(i, j):
-    print(j,' wins')
+pcChoice = random.randint(0,4)
 
-def playerTie(i,j):
-    print(i , j,'ties')
+choices = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+
+def playerWins():
+    print('you win')
+
+def playerLoses():
+    print('you lose')
+
+def playerTies():
+    print('tie game')
+
+
+#loses
+def outcome():
+    if (playerChoice == 'rock' and (choices[pcChoice] == 'paper' or choices[pcChoice] == 'spock')):
+        playerLoses()
+
+    elif (playerChoice == 'paper' and (choices[pcChoice] == 'scissors' or choices[pcChoice] == 'spock')):
+        playerLoses()
+
+    elif (playerChoice == 'scissors' and (choices[pcChoice] == 'spock' or choices[pcChoice] == 'rock')):
+        playerLoses()
+
+    elif (playerChoice == 'lizard' and (choices[pcChoice] == 'scissors' or choices[pcChoice] == 'rock')):
+        playerLoses()
+         
+    elif (playerChoice == 'spock' and (choices[pcChoice] == 'paper' or choices[pcChoice]== 'lizard')):
+        playerLoses()
+    #wins
+    elif (playerChoice == 'rock' and (choices[pcChoice] == 'scissors' or choices[pcChoice]== 'lizard')):
+        playerWins()
+
+    elif (playerChoice == 'paper' and (choices[pcChoice] == 'rock' or choices[pcChoice] == 'spock')):
+        playerWins()
+
+    elif (playerChoice == 'scissors' and (choices[pcChoice] == 'paper' or choices[pcChoice] == 'lizard')):
+        playerWins()
+
+    elif (playerChoice == 'lizard' and (choices[pcChoice] == 'spock' or choices[pcChoice] == 'paper')):
+        playerWins()
+
+    elif (playerChoice == 'spock' and (choices[pcChoice] == 'rock' or choices[pcChoice] == 'scissors')):
+        playerWins()
+    #ties
+    elif (playerChoice == 'rock' and (choices[pcChoice] == 'rock')):
+        playerTies()
+
+    elif (playerChoice == 'paper' and (choices[pcChoice] == 'paper')):
+        playerTies()
+
+    elif (playerChoice == 'scissors' and (choices[pcChoice] == 'scissors')):
+        playerTies()
+
+    elif (playerChoice == 'lizard' and (choices[pcChoice] == 'lizard')):
+        playerTies()
+
+    elif (playerChoice == 'spock' and (choices[pcChoice] == 'spock')):
+        playerTies()
 
 playerChoice = (input('enter rock, paper, scissors, lizard or spock: '))
+if (playerChoice != ('rock') or ('paper') or ('scissors') or ('lizard') or ('spock')):
+    print('what\'re you doing.....')
+    playerChoice = (input('enter rock, paper, scissors, lizard or spock: '))
 
-a=random.randint(0,4)
-pcChoice = ['rock', 'paper', 'scissors', 'lizard', 'spock']
-print('the computer chose',pcChoice[a])
-#loses
-if (playerChoice == 'rock' and (pcChoice[a] == 'paper' or pcChoice[a] == 'spock')):
-    playerLoses (playerChoice, pcChoice[a])
-
-elif (playerChoice == 'paper' and (pcChoice[a] == 'scissors' or pcChoice[a] == 'spock')):
-    playerLoses (playerChoice, pcChoice[a])
-
-elif (playerChoice == 'scissors' and (pcChoice[a] == 'spock' or pcChoice[a] == 'rock')):
-    playerLoses (playerChoice, pcChoice[a])
-
-elif (playerChoice == 'lizard' and (pcChoice[a] == 'scissors' or pcChoice[a] == 'rock')):
-    playerLoses (playerChoice, pcChoice[a])
-     
-elif (playerChoice == 'spock' and (pcChoice[a] == 'paper' or pcChoice[a]== 'lizard')):
-    playerLoses (playerChoice, pcChoice[a])
-#wins
-elif (playerChoice == 'rock' and (pcChoice[a] == 'scissors' or pcChoice[a]== 'lizard')):
-    playerWins (playerChoice, pcChoice[a])
-
-elif (playerChoice == 'paper' and (pcChoice[a] == 'rock' or pcChoice[a] == 'spock')):
-    playerWins (playerChoice, pcChoice[a])
-
-elif (playerChoice == 'scissors' and (pcChoice[a] == 'paper' or pcChoice[a] == 'lizard')):
-    playerWins (playerChoice, pcChoice[a])
-
-elif (playerChoice == 'lizard' and (pcChoice[a] == 'spock' or pcChoice[a] == 'paper')):
-    playerWins (playerChoice, pcChoice[a])
-
-elif (playerChoice == 'spock' and (pcChoice[a] == 'rock' or pcChoice[a] == 'scissors')):
-    playerWins (playerChoice, pcChoice[a])
-#ties
-elif (playerChoice == 'rock' and (pcChoice[a] == 'rock')):
-    playerTies (playerChoice, pcChoice[a])
+    if(playerChoice == ('rock') or ('paper') or ('scissors') or ('lizard') or ('spock')):
+        print('the computer chose',choices[pcChoice])
+        def countdown(T) :
+            while(T > 0):
+                print(T)
+                T = T - 1
+                time.sleep(1)
+                if T ==0:
+                    outcome()
+countdown(3)
 
 
-elif (playerChoice == 'paper' and (pcChoice[a] == 'paper')):
-    playerTies (playerChoice, pcChoice[a])
 
-elif (playerChoice == 'scissors' and (pcChoice[a] == 'scissors')):
-    playerTies (playerChoice, pcChoice[a])
 
-elif (playerChoice == 'lizard' and (pcChoice[a] == 'lizard')):
-    playerTies (playerChoice, pcChoice[a])
-
-elif (playerChoice == 'spock' and (pcChoice[a] == 'spock')):
-    playerTies (playerChoice, pcChoice[a])
 
 
 
