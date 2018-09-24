@@ -1,30 +1,20 @@
+import random
 import time
-choices = ['rock', 'paper', 'scissors', 'lizard', 'spock']
-playerChoice = None
-def check():
-    time.sleep(2)
-    if playerChoice != None:
-        return
-    print ('Too slow')
 
-def countdown(T) :
-    while(T > -1):
-        print(T)
-        T = T - 1
-        time.sleep(1)
+#choices = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
-#figure out what beats what.
 def playerWins():
     print('you win')
 
 def playerLoses():
-    print('computer wins')
+    print('you lose')
 
 def playerTies():
     print('tie game')
 
-def outcome(playerChoice, pcChoice):
-    #loses
+
+#loses
+def outcome(playerChoice,choices,pcChoice):
     if (playerChoice == 'rock' and (choices[pcChoice] == 'paper' or choices[pcChoice] == 'spock')):
         playerLoses()
 
@@ -70,6 +60,10 @@ def outcome(playerChoice, pcChoice):
     elif (playerChoice == 'spock' and (choices[pcChoice] == 'spock')):
         playerTies()
 
-    
-
-
+def countdown() :
+    while(T > 0):
+        print(T)
+        T = T - 1
+        time.sleep(1)
+        if T ==0:
+             
