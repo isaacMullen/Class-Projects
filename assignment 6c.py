@@ -1,82 +1,31 @@
 import random
+import library
 import time
+from threading import Thread
 
-pcChoice = random.randint(0,4)
+playerChoice = None
 
-choices = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+library.countdown(1)
 
-def playerWins():
-    print('you win')
+a = random.randint(0,4)
 
-def playerLoses():
-    print('you lose')
+print('the computer chose',library.choices[a])
 
-def playerTies():
-    print('tie game')
-
-
-#loses
-def outcome():
-    if (playerChoice == 'rock' and (choices[pcChoice] == 'paper' or choices[pcChoice] == 'spock')):
-        playerLoses()
-
-    elif (playerChoice == 'paper' and (choices[pcChoice] == 'scissors' or choices[pcChoice] == 'spock')):
-        playerLoses()
-
-    elif (playerChoice == 'scissors' and (choices[pcChoice] == 'spock' or choices[pcChoice] == 'rock')):
-        playerLoses()
-
-    elif (playerChoice == 'lizard' and (choices[pcChoice] == 'scissors' or choices[pcChoice] == 'rock')):
-        playerLoses()
-         
-    elif (playerChoice == 'spock' and (choices[pcChoice] == 'paper' or choices[pcChoice]== 'lizard')):
-        playerLoses()
-    #wins
-    elif (playerChoice == 'rock' and (choices[pcChoice] == 'scissors' or choices[pcChoice]== 'lizard')):
-        playerWins()
-
-    elif (playerChoice == 'paper' and (choices[pcChoice] == 'rock' or choices[pcChoice] == 'spock')):
-        playerWins()
-
-    elif (playerChoice == 'scissors' and (choices[pcChoice] == 'paper' or choices[pcChoice] == 'lizard')):
-        playerWins()
-
-    elif (playerChoice == 'lizard' and (choices[pcChoice] == 'spock' or choices[pcChoice] == 'paper')):
-        playerWins()
-
-    elif (playerChoice == 'spock' and (choices[pcChoice] == 'rock' or choices[pcChoice] == 'scissors')):
-        playerWins()
-    #ties
-    elif (playerChoice == 'rock' and (choices[pcChoice] == 'rock')):
-        playerTies()
-
-    elif (playerChoice == 'paper' and (choices[pcChoice] == 'paper')):
-        playerTies()
-
-    elif (playerChoice == 'scissors' and (choices[pcChoice] == 'scissors')):
-        playerTies()
-
-    elif (playerChoice == 'lizard' and (choices[pcChoice] == 'lizard')):
-        playerTies()
-
-    elif (playerChoice == 'spock' and (choices[pcChoice] == 'spock')):
-        playerTies()
+Thread(target = library.check).start()
 
 playerChoice = (input('enter rock, paper, scissors, lizard or spock: '))
-if (playerChoice != ('rock') or ('paper') or ('scissors') or ('lizard') or ('spock')):
-    print('what\'re you doing.....')
+
+
+#player choosing rock, paper, scissors, lizard or spock.
+while (playerChoice != 'rock' and playerChoice != 'paper' and playerChoice != 'scissors' and playerChoice != 'lizard' and playerChoice != 'spock'):
+    print('please enter your selection correctly')
     playerChoice = (input('enter rock, paper, scissors, lizard or spock: '))
 
-    if(playerChoice == ('rock') or ('paper') or ('scissors') or ('lizard') or ('spock')):
-        print('the computer chose',choices[pcChoice])
-        def countdown(T) :
-            while(T > 0):
-                print(T)
-                T = T - 1
-                time.sleep(1)
-                if T ==0:
-                    outcome()
-countdown(3)
+library.outcome(playerChoice, a)
+
+
+
+
 
 
 
