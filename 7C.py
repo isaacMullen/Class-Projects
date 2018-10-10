@@ -14,6 +14,7 @@ GREY = (48, 41, 50)
 BLUE = (1, 7, 52)
 LIGHTBLUE = (95, 164, 201)
 LIGHTRED = (150, 1, 28)
+BEIGE = (128, 102, 79)
 screen.fill(BLACK)
 
 
@@ -95,18 +96,21 @@ pygame.draw.line(screen, BLACK, [800,100],[800,255],3)
 pygame.draw.polygon(screen,BLACK, [[550, 900], [575, 750],[625, 500],[700, 300],[800, 100],[900, 300],[975, 500],[1025, 750],[1050, 900]],5)
 pygame.draw.polygon(screen, BLACK, [[650, 900], [665, 750 ],[700, 550],[750, 400],[800, 250],[850, 400],[900, 550],[935, 750],[950, 900]],5)
 pygame.draw.polygon(screen, BLACK, [[650, 900], [665, 750 ],[700, 550],[750, 400],[800, 250],[850, 400],[900, 550],[935, 750],[950, 900]],5)
-
-for i in range(2):
-    pygame.draw.arc(screen, WHITE, (700,200,800,800), 5, 8, 7)
-    pygame.draw.arc(screen, WHITE, (760,200,650,725), 5, 8, 7)
+#SCYTHE(RIGHT)
+pygame.draw.arc(screen, WHITE, (700,200,800,800), 5, 8, 7)
+pygame.draw.arc(screen, WHITE, (760,200,650,725), 5, 8, 7)
     
-    
+#SCYTHE(LEFT)
+pygame.draw.arc(screen, WHITE, (130,200,800,800), 1.5, 5, 7)
+pygame.draw.arc(screen, WHITE, (220,200,650,725), 1.5, 5, 7)    
 
 
-
-
-
-
+#x = [20, 1580]
+#y = [20, 1580]
+#random.randint
+#x = 20
+#y = 20
+#pygame.draw.circle(screen, BEIGE,(x,y),300)
     
 
 
